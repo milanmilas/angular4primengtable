@@ -1,6 +1,10 @@
 export class Car {
-    vin;
-    year;
-    brand;
-    color;
+    vin: string;
+    year: Date;
+    brand: string;
+    color: string;
+
+    public constructor(init?:Partial<Car>) {
+        Object.assign(this, init);
+    }
 }
