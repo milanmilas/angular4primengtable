@@ -19,6 +19,10 @@
         <p-column field="color" header="Color" [filter]="true" [sortable]="true"></p-column>
     </p-dataTable>
 </div>
+<h3>Dynamic Columns</h3>
+<p-dataTable [value]="cars">
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header"></p-column>
+</p-dataTable>
 <ul>
   <li>
     <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>

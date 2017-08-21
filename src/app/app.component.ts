@@ -13,6 +13,8 @@ export class AppComponent {
 
   cars: Car[];
   car: Car;
+
+  cols: any[];
   
   constructor() {
     this.car = new Car({ vin: 'http://www.google.com',  brand: "yugo"});
@@ -21,6 +23,13 @@ export class AppComponent {
       new Car({ vin: '1leave',  brand: "yugo"}),
       new Car({ vin: '2modify',  brand: "yugo"}),
       new Car({ vin: '3',  brand: "yugo"})];
+
+    this.cols = [
+          {field: 'vin', header: 'Vin'},
+          {field: 'year', header: 'Year'},
+          {field: 'brand', header: 'Brand'},
+          {field: 'color', header: 'Color'}
+      ];
 
     this.start(3);
    }
@@ -31,6 +40,12 @@ export class AppComponent {
         setTimeout(function(){
           let oldCounter = counter;
           counter++;
+
+          // columns
+          local.cols = [
+                {field: 'vin', header: 'Vin'},
+                {field: 'year', header: 'Year'}
+            ];
 
           // modify changed sets
           let car = local.cars.find((car: Car, index) => car.vin == '2modify');
